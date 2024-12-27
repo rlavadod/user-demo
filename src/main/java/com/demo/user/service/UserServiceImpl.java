@@ -21,9 +21,13 @@ public class UserServiceImpl implements UserService {
   @Autowired
   private UserMapper userMapper;
 
+  @Autowired
+  private JwtServiceImpl jwtService;
+
   public User saveUser(User user) {
     UserEntity entity = userMapper.userToUserEntity(user);
     entity.setCreated(new Date());
+    entity.setToken(jwtService.generateToken(user));
     UserEntity response = repository.save(entity);
     return userMapper.entityToUser(response);
   }
