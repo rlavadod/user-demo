@@ -11,3 +11,5 @@ spring:
   h2:
     console:
       enabled: true
+valid-formats:
+  password-pattern: '^[a-zA-Z0-9]+'

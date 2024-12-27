@@ -57,4 +57,9 @@ public class UserServiceImpl implements UserService {
     UserEntity userUpdated = repository.save(userMapper.userToUserEntity(user));
     return userMapper.entityToUser(userUpdated);
   }
+
+  @Override
+  public Boolean getUserByEmail(String email) {
+    return repository.findByEmail(email).isEmpty();
+  }
 }

@@ -11,4 +11,5 @@ public interface UserService {
   User getUserById(UUID id);
   void deleteUserById(UUID id);
   User updateUser(User user);
+  Boolean getUserByEmail(String email);
 }
